@@ -74,6 +74,7 @@
   background-color: white;
   width: 10%;
   height: 10%;
+  opacity: 0.1;
 }
 .article-open {
   height: 400px;

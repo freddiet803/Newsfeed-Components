@@ -136,7 +136,7 @@ function createArticle(articleObject) {
   articleParaOne.textContent = articleObject.firstParagraph;
   articleParaTwo.textContent = articleObject.secondParagraph;
   articleParaThree.textContent = articleObject.thirdParagraph;
-  articleExpand.textContent = 'Click Me';
+  //articleExpand.textContent = 'Click Me';
 
   //adding classes to elements
   article.classList.add('article');
@@ -152,7 +152,7 @@ function createArticle(articleObject) {
   article.appendChild(articleExpand);
 
   //adding event listener
-  articleExpand.addEventListener('click', event => {
+  articleExpand.addEventListener('mouseover', event => {
     article.classList.toggle('article-open');
   });
 
