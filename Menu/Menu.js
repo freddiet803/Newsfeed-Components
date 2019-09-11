@@ -46,8 +46,9 @@ function createMenuComponent(arrayMenu) {
     li.textContent = element;
     list.appendChild(li);
   });
-
+  //let menuDiv = document.createElement('div');
   let menuButton = document.querySelector('.menu-button');
+  // menuButton.appendChild(menuDiv);
   menuButton.addEventListener('click', event => {
     menu.classList.toggle('menu--open');
   });
