@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'My article Boy',
+    date: 'Sept 10th, 2019',
+    firstParagraph: 'Mine wont be that long',
+    secondParagraph: 'I dont have much to say',
+    thirdParagraph: 'Youre making me nervous!'
   }
 ];
 
@@ -112,3 +119,54 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function createArticle(articleObject) {
+  // create the elements of the component
+  let article = document.createElement('div');
+  let articleTitle = document.createElement('h2');
+  let articleDate = document.createElement('p');
+  let articleParaOne = document.createElement('p');
+  let articleParaTwo = document.createElement('p');
+  let articleParaThree = document.createElement('p');
+  let articleExpand = document.createElement('span');
+
+  // setting text content where applicable
+  articleTitle.textContent = articleObject.title;
+  articleDate.textContent = articleObject.date;
+  articleParaOne.textContent = articleObject.firstParagraph;
+  articleParaTwo.textContent = articleObject.secondParagraph;
+  articleParaThree.textContent = articleObject.thirdParagraph;
+  //articleExpand.textContent = 'Click Me';
+
+  //adding classes to elements
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  articleExpand.classList.add('expandButton');
+
+  //adding elements to article
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(articleParaOne);
+  article.appendChild(articleParaTwo);
+  article.appendChild(articleParaThree);
+  article.appendChild(articleExpand);
+
+  //adding event listener
+  articleExpand.addEventListener('mouseover', event => {
+    article.classList.toggle('article-open');
+  });
+
+  return article;
+}
+
+let articles = document.querySelector('.articles');
+
+let articleData = data.map(article => {
+  let newArticle = createArticle(article);
+
+  return newArticle;
+});
+
+articleData.forEach(element => {
+  articles.appendChild(element);
+});
